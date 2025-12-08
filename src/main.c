@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <locale.h>
 
-// Incluindo os cabeçalhos dos outros módulos
+// outros módulos
 #include "funcionarios.h"
 #include "cardapio.h"
 #include "pedidos.h"
 #include "fila.h"
 
-// Função utilitária para limpar a tela (funciona em Windows e Linux/Mac)
+
 void limparTela() {
     #ifdef _WIN32
         system("cls");
@@ -21,21 +21,21 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
     int opcao;
 
-    // TODO: Inicializar estruturas globais aqui (ex: filas, pilhas)
-    // Ex: Pedido* pilhaPedidos = NULL;
-    // Ex: Cliente* filaEspera = NULL;
+    
+    Pedido* pilhaPedidos = NULL;
+    Cliente* filaEspera = NULL;
 
     do {
-        // limparTela(); // Descomente para limpar a tela a cada loop
+        limparTela();
         printf("\n=== BORA COMER - SISTEMA DE RESTAURANTE ===\n");
-        printf("1. Gestão de Funcionários (Gabs)\n");
-        printf("2. Gestão do Cardápio (Jolie)\n");
-        printf("3. Fila de Espera (Emilly)\n");
-        printf("4. Pedidos e Cozinha (Elisa)\n");
+        printf("1. Gestão de Funcionários \n");
+        printf("2. Gestão do Cardápio \n");
+        printf("3. Fila de Espera \n");
+        printf("4. Pedidos e Cozinha \n");
         printf("0. Sair\n");
         printf("Escolha uma opção: ");
         
-        // Validação básica de entrada (para não quebrar com letras)
+        // Validação básica de entrada para garantir que o usuário digite um número
         if (scanf("%d", &opcao) != 1) {
             printf("Erro: Digite um número válido!\n");
             while(getchar() != '\n'); // Limpa o buffer do teclado
@@ -44,15 +44,25 @@ int main() {
 
         switch(opcao) {
             case 1:
+                //menu do módulo de funcionários
                 menuFuncionarios();
                 break;
             case 2:
+                //menu do módulo de cardápio
                 menuCardapio();
                 break;
             case 3:
+                //menu do módulo de fila de espera
+                //endereço da fila para que as alterações sejam mantidas
+                // Nota: Pode ser necessário ajustar a assinatura de menuFila no fila.h
+                // se quiser passar a fila como parâmetro, ou mantê-la global/estática lá.
+                // Por enquanto, chamamos a função do menu.
                 menuFila();
                 break;
             case 4:
+                // Chama o menu do módulo de pedidos
+                // Passamos o endereço da pilha para que as alterações sejam mantidas
+                // Nota: Similar à fila, verifique se menuPedidos precisa receber a pilha.
                 menuPedidos();
                 break;
             case 0:
@@ -62,10 +72,10 @@ int main() {
                 printf("\nOpção inválida! Tente novamente.\n");
         }
         
-        if (opcao != 0) {
-            printf("\nPressione Enter para continuar...");
-            getchar(); getchar(); // Pausa para o usuário ler
-        }
+        // Pausa antes de limpar a tela ou mostrar o menu novamente
+        printf("\nPressione Enter para continuar...");
+        while(getchar() != '\n');  
+            getchar();    
 
     } while (opcao != 0);
 
