@@ -11,7 +11,7 @@ static void inserirFim(ItemCardapio* novo);
 void menuCardapio() {
     int opcao;
     do {
-        printf("Cardápio");
+        printf("\nCardápio\n");
         printf("1. Adicionar item ao cardápio\n");
         printf("2. Remover item do cardápio\n");
         printf("3. Ver cardápio\n");
