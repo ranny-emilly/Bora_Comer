@@ -80,7 +80,7 @@ void adicionarItem() {
 
     inserirFim(novo);
 
-    printf("Item adicionado com sucesso");
+    printf("Item adicionado com sucesso!");
 }
 
 
