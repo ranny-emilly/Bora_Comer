@@ -11,10 +11,10 @@ static void inserirFim(ItemCardapio* novo);
 void menuCardapio() {
     int opcao;
     do {
-        printf("\nCardápio\n");
-        printf("1. Adicionar item ao cardápio\n");
-        printf("2. Remover item do cardápio\n");
-        printf("3. Ver cardápio\n");
+        printf("\nCardapio\n");
+        printf("1. Adicionar item ao cardapio\n");
+        printf("2. Remover item do cardapio\n");
+        printf("3. Ver cardapio\n");
         printf("0. Voltar ao menu principal\n");
         printf("Escolha: ");
 
@@ -38,7 +38,7 @@ void menuCardapio() {
                 printf("Voltando ao menu principal...\n");
                 break;
             default:
-                printf("Opção inválida! Por favor selecione uma das opções acima\n");
+                printf("Opcao invalida! Por favor selecione uma das opcoes acima\n");
         }
 
         if (opcao != 0) {
@@ -53,7 +53,7 @@ void menuCardapio() {
 void adicionarItem() {
     ItemCardapio* novo = (ItemCardapio*)malloc(sizeof(ItemCardapio));
     if (novo == NULL) {
-        printf("Erro: memória insuficiente.\n");
+        printf("Erro: memoria insuficiente.\n");
         return;
     }
 
@@ -69,7 +69,7 @@ void adicionarItem() {
 
     printf("Valor: R$ ");
     if (scanf("%f", &novo->preco) != 1) {
-        printf("Preço inválido!\n");
+        printf("Preco invalido!\n");
         free(novo);
         while (getchar() != '\n');
         return;
@@ -80,20 +80,20 @@ void adicionarItem() {
 
     inserirFim(novo);
 
-    printf("Item adicionado: [%d] %s — %s — R$ %.2f\n", novo->id, novo->nome, novo->categoria, novo->preco);
+    printf("Item adicionado com sucesso");
 }
 
 
 void removerItem() {
     if (inicioCardapio == NULL) {
-        printf("\nO cardápio está vazio.\n");
+        printf("\nO cardapio esta vazio.\n");
         return;
     }
 
     int id;
     printf("Digite o ID do item a remover: ");
     if (scanf("%d", &id) != 1) {
-        printf("ID inválido.\n");
+        printf("ID invalido.\n");
         while (getchar() != '\n');
         return;
     }
@@ -125,7 +125,7 @@ void removerItem() {
 
 void verCardapio() {
     if (inicioCardapio == NULL) {
-        printf("\nO cardápio está vazio.\n");
+        printf("\nO cardapio esta vazio.\n");
         return;
     }
 
@@ -146,7 +146,7 @@ void verCardapio() {
         p = p->proximo;
     }
 
-    printf("\n========= CARDÁPIO =========\n");
+    printf("\n========= CARDAPIO =========\n");
     for (int i = 0; i < nCats; ++i) {
         printf("\n--- %s ---\n", categorias[i][0] != '\0' ? categorias[i] : "Geral");
 
