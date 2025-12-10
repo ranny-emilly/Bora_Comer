@@ -3,7 +3,6 @@
 #include <string.h> 
 #include "pedidos.h"
 
-// Variável para gerar IDs de pedidos sequenciais
 static int proximo_id = 1;
 
 void menuPedidos() {
@@ -11,12 +10,12 @@ void menuPedidos() {
     Pedido* topo_pilha = NULL; 
 
     do {
-        printf("\n--- Módulo de Pedidos/Cozinha ---\n");
-        printf("1. Adicionar Novo Pedido (PUSH)\n");
-        printf("2. Entregar Pedido (POP)\n");
-        printf("3. Listar Todos os Pedidos (PEEK)\n");
+        printf("\n--- Modulo de Pedidos/Cozinha ---\n");
+        printf("1. Adicionar Novo Pedido \n");
+        printf("2. Entregar Pedido \n");
+        printf("3. Listar Todos os Pedidos \n");
         printf("0. Voltar ao Menu Principal\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -33,7 +32,7 @@ void menuPedidos() {
                 printf("Voltando ao menu principal.\n");
                 break;
             default:
-                printf("Opção inválida! Tente novamente.\n");
+                printf("Opcao invalida! Tente novamente.\n");
         }
     } while (opcao != 0);
 
@@ -46,7 +45,7 @@ void adicionarPedido(Pedido** topo) {
     Pedido* novo_pedido = (Pedido*)malloc(sizeof(Pedido));
 
     if (novo_pedido == NULL) {
-        printf("ERRO: Falha na alocação de memória para o novo pedido.\n");
+        printf("ERRO\n");
         return;
     }
 
@@ -57,7 +56,7 @@ void adicionarPedido(Pedido** topo) {
     // Limpa o buffer de entrada antes de ler a string
     while (getchar() != '\n'); 
 
-    printf("Descrição do Pedido (max 99 caracteres): ");
+    printf("Descricao do Pedido: ");
     // Lê a descrição, limitando o tamanho para evitar buffer overflow
     fgets(novo_pedido->descricao, 100, stdin);
     // Remove o '\n' lido pelo fgets, se presente
@@ -72,13 +71,13 @@ void adicionarPedido(Pedido** topo) {
     // 4. Atualiza o topo da pilha para o novo pedido
     *topo = novo_pedido; 
 
-    printf("\n✅ Pedido %d (\"%s\") adicionado ao topo da pilha.\n", novo_pedido->id, novo_pedido->descricao);
+    printf("\n Pedido %d (\"%s\") adicionado.\n", novo_pedido->id, novo_pedido->descricao);
 }
 
 // Implementação POP (Desempilhar)
 void entregarPedido(Pedido** topo) {
     if (*topo == NULL) {
-        printf("\n🚫 A pilha de pedidos está vazia. Nenhum pedido para entregar.\n");
+        printf("\nA pilha de pedidos esta vazia. Nenhum pedido para entregar.\n");
         return;
     }
 
@@ -89,31 +88,31 @@ void entregarPedido(Pedido** topo) {
     *topo = temp->proximo;
 
     // 3. Exibe informações do pedido que está sendo removido/entregue
-    printf("\n🚚 Pedido Entregue/Removido:\n");
+    printf("\n Pedido Entregue/Removido:\n");
     printf("ID: %d\n", temp->id);
-    printf("Descrição: %s\n", temp->descricao);
+    printf("Descricao: %s\n", temp->descricao);
     printf("Valor: R$ %.2f\n", temp->valor);
 
     // 4. Libera a memória alocada para o nó removido
     free(temp);
-    printf("\n✅ Pedido liberado da memória.\n");
+    printf("\nPedido liberado da memoria.\n");
 }
 
 // Implementação PEEK/Listagem
 void listarPedidos(Pedido* topo) {
     if (topo == NULL) {
-        printf("\n🚫 A pilha de pedidos está vazia.\n");
+        printf("\nA pilha de pedidos esta vazia.\n");
         return;
     }
 
-    printf("\n--- 🧾 Pedidos na Pilha (Topo para Baixo) ---\n");
+    printf("\nPedidos na Pilha\n");
 
     Pedido* atual = topo;
 
     // Percorre a lista/pilha a partir do topo
     while (atual != NULL) {
         printf("--- Pedido ID: %d (R$ %.2f) ---\n", atual->id, atual->valor);
-        printf("Descrição: %s\n", atual->descricao);
+        printf("Descricao: %s\n", atual->descricao);
         // Avança para o próximo pedido ("de baixo")
         atual = atual->proximo; 
     }
