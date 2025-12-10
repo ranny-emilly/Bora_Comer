@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-// outros módulos
+
 #include "funcionarios.h"
 #include "cardapio.h"
 #include "pedidos.h"
@@ -17,8 +17,8 @@ void limparTela() {
     #endif
 }
 
-int main() {
-    setlocale(LC_ALL, "Portuguese");
+int main(void) {
+    setlocale(LC_ALL, "");
     int opcao;
 
     
