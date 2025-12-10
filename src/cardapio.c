@@ -118,7 +118,7 @@ void removerItem() {
         anterior->proximo = atual->proximo;
     }
 
-    printf("Item removido: [%d] %s — %s — R$ %.2f\n", atual->id, atual->nome, atual->categoria, atual->preco);
+    printf("Item removido com sucesso!");
     free(atual);
 }
 
