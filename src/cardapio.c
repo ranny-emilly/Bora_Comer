@@ -108,7 +108,7 @@ void removerItem() {
     }
 
     if (atual == NULL) {
-        printf("Item com ID %d não encontrado.\n", id);
+        printf("Item com ID %d nao encontrado.\n", id);
         return;
     }
 
