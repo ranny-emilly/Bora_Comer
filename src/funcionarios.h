@@ -2,7 +2,7 @@
 #define FUNCIONARIOS_H
 
 typedef struct {
-    int id;
+    char cpf[20];
     char nome[50];
     char cargo[30];
 } Funcionario;
@@ -10,5 +10,6 @@ typedef struct {
 void menuFuncionarios();
 void cadastrarFuncionario();
 void listarFuncionarios();
+void removerFuncionario();
 
 #endif
