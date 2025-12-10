@@ -95,7 +95,7 @@ void entregarPedido(Pedido** topo) {
 
     // 4. Libera a memória alocada para o nó removido
     free(temp);
-    printf("\nPedido liberado da memoria.\n");
+    printf("\nPedido liberado.\n");
 }
 
 // Implementação PEEK/Listagem
