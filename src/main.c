@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-
+// outros módulos
 #include "funcionarios.h"
 #include "cardapio.h"
 #include "pedidos.h"
@@ -17,8 +17,8 @@ void limparTela() {
     #endif
 }
 
-int main(void) {
-    setlocale(LC_ALL, "");
+int main() {
+    setlocale(LC_ALL, "Portuguese");
     int opcao;
 
     
@@ -28,16 +28,16 @@ int main(void) {
     do {
         limparTela();
         printf("\n=== BORA COMER - SISTEMA DE RESTAURANTE ===\n");
-        printf("1. Gestão de Funcionários \n");
-        printf("2. Gestão do Cardápio \n");
+        printf("1. Gestao de Funcionarios \n");
+        printf("2. Gestao do Cardapio \n");
         printf("3. Fila de Espera \n");
         printf("4. Pedidos e Cozinha \n");
         printf("0. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcaoo: ");
         
         // Validação básica de entrada para garantir que o usuário digite um número
         if (scanf("%d", &opcao) != 1) {
-            printf("Erro: Digite um número válido!\n");
+            printf("Erro: Digite um numero valido!\n");
             while(getchar() != '\n'); // Limpa o buffer do teclado
             continue;
         }
@@ -66,10 +66,10 @@ int main(void) {
                 menuPedidos();
                 break;
             case 0:
-                printf("\nSaindo do sistema... Até logo!\n");
+                printf("\nSaindo do sistema... Ate logo!\n");
                 break;
             default:
-                printf("\nOpção inválida! Tente novamente.\n");
+                printf("\nOpcao invalida! Tente novamente.\n");
         }
         
         // Pausa antes de limpar a tela ou mostrar o menu novamente
