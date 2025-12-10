@@ -80,7 +80,7 @@ void adicionarItem() {
 
     inserirFim(novo);
 
-    printf("Item adicionado: [%d] %s — %s — R$ %.2f\n", novo->id, novo->nome, novo->categoria, novo->preco);
+    printf("Item adicionado com sucesso!");
 }
 
 
