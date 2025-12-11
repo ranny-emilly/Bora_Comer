@@ -1,0 +1,3 @@
+A plataforma Bora Comer permite gerenciar sistemas de restaurante de forma simples e rápida, com cardápio (lista), lista de espera (fila), gestão de funcionários (lista) e gestão de pedidos (pilha).
+Desenvolvido por Elisa Correia, Emilly Ranny, Gabriela Brasileiro e Jolie Pavan
+Cada funcionalidade possui seu próprio arquivo de código, em caso de qualquer dúvida, estamos a disposição :)
